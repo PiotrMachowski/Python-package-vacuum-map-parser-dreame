@@ -47,7 +47,7 @@ raw_map: bytes = b''
 
 parser = DreameMapDataParser(palette, sizes, drawables, image_config, texts, model)
 
-unpacked_map = parser.unpack_map(raw_map, enc_key)
+unpacked_map = parser.unpack_map(raw_map, enc_key=enc_key)
 parsed_map = parser.parse(unpacked_map)
 ```
 
