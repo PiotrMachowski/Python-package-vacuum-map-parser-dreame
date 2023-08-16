@@ -14,7 +14,7 @@
 [pypi_releases_shield]: https://img.shields.io/pypi/v/vacuum-map-parser-dreame
 
 [pypi_downloads]: https://pepy.tech/project/vacuum-map-parser-dreame
-[pypi_downloads_shield]: https://static.pepy.tech/badge/vacuum-map-parser-dreame/month
+[pypi_downloads_shield]: https://static.pepy.tech/badge/vacuum-map-parser-dreame
 
 # Vacuum map parser - Dreame
 
