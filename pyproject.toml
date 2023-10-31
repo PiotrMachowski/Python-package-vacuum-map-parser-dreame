@@ -27,7 +27,7 @@ packages = [
 python = "^3.11"
 Pillow = "*"
 pycryptodome = "*"
-vacuum-map-parser-base = "0.1.1"
+vacuum-map-parser-base = "0.1.2"
 
 [tool.poetry.dev-dependencies]
 black = "*"
