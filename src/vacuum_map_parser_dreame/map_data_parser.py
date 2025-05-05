@@ -57,7 +57,7 @@ class DreameMapDataParser(MapDataParser):
         "dreame.vacuum.r2254": "wRy05fYLQJMRH6Mj",
     }
 
-    def __init__(
+    def __init__( # pylint: disable=R0917
         self,
         palette: ColorsPalette,
         sizes: Sizes,
