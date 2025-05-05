@@ -64,7 +64,15 @@ class DreameImageParser:
                     px = raw_data[img_x + trim_left + header.image_width * (img_y + trim_bottom)]
                     segment_id = px >> 2
                     if 0 < segment_id < 62:
-                        self._create_or_update_room(pixels, room_x, room_y, rooms, segment_id, x, y)
+                        self._create_or_update_room(
+                            pixels=pixels,
+                            room_x=room_x,
+                            room_y=room_y,
+                            rooms=rooms,
+                            segment_id=segment_id,
+                            x=x,
+                            y=y
+                        )
                     else:
                         masked_px = px & 0b00000011
 
@@ -84,14 +92,22 @@ class DreameImageParser:
                     if wall_flag:
                         pixels[x, y] = self._palette.get_color(SupportedColor.MAP_WALL)
                     elif segment_id > 0:
-                        self._create_or_update_room(pixels, room_x, room_y, rooms, segment_id, x, y)
+                        self._create_or_update_room(
+                            pixels=pixels,
+                            room_x=room_x,
+                            room_y=room_y,
+                            rooms=rooms,
+                            segment_id=segment_id,
+                            x=x,
+                            y=y
+                        )
 
         if self._image_config.scale != 1 and header.image_width != 0 and header.image_height != 0:
             image = image.resize((int(trimmed_width * scale), int(trimmed_height * scale)), resample=Resampling.NEAREST)
         return image, rooms
 
     def _create_or_update_room(
-        self, pixels: Any, room_x: int, room_y: int, rooms: dict[int, Room], segment_id: int, x: int, y: int
+        self, *, pixels: Any, room_x: int, room_y: int, rooms: dict[int, Room], segment_id: int, x: int, y: int
     ) -> None:
         if segment_id not in rooms:
             rooms[segment_id] = Room(room_x, room_y, room_x, room_y, segment_id)
